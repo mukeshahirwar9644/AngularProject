@@ -1,0 +1,146 @@
+<!-- Heading -->
+<h2 style="
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1.2px;
+  background: linear-gradient(to right, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+">
+  Angular JSON Forms Project
+</h2>
+<hr style="
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #3498db, #e67e22, #8e44ad);
+  border: none;
+  border-radius: 2px;
+  margin: 0 auto 30px auto;
+" />
+
+<!-- Form -->
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)" style="
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 35px 50px;
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s ease-in-out;
+">
+  <formly-form [model]="model" [fields]="fields" [form]="form"
+    style="display: flex; flex-direction: column; gap: 22px;"></formly-form>
+
+  <div class="button-row" style="
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  ">
+    <button type="reset" mat-raised-button style="
+      flex: 1;
+      margin-right: 20px;
+      padding: 14px 22px;
+      background: linear-gradient(to right, #e67e22, #f39c12);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      Clear
+    </button>
+
+    <button mat-raised-button color="primary" type="submit" style="
+      flex: 1;
+      padding: 14px 22px;
+      background: linear-gradient(to right, #2980b9, #6dd5fa, #3498db);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      Submit
+    </button>
+  </div>
+</form>
+
+<!-- Modal -->
+<div *ngIf="showModal" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+">
+  <div style="
+    background: white;
+    padding: 50px 40px;
+    border-radius: 18px;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+  ">
+    <h3 style="
+      color: #2ecc71;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    ">Thank You!</h3>
+    <p style="font-size: 17px; color: #555;">
+      Your form has been submitted successfully.
+    </p>
+    <button (click)="closeModal()" style="
+      margin-top: 24px;
+      padding: 12px 24px;
+      background: linear-gradient(to right, #e74c3c, #c0392b);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    " onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- JSON Output -->
+<p style="
+  font-size: 15px;
+  color: #333;
+  background: linear-gradient(to right, #ecf0f1, #ffffff);
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 40px;
+  white-space: pre-wrap;
+  width: 100%;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+">
+  {{ model | json }}
+</p>

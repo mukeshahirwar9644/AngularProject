@@ -1,0 +1,81 @@
+{
+    "title": "Angular Form",
+    "type": "object",
+    "properties": {
+      "firstname": {
+        "type": "string",
+        "title": "Firstname",
+        "widget":{
+          "formlyConfig":{
+            "className":"flex-3"
+          }
+        }
+      },
+      "nationId": {
+        "type": "ng-select-autocomplete",
+        "title": "Nation",
+        "widget": {
+          "formlyConfig": {
+            "type": "ng-select-autocomplete",
+            "className":"flex-3",
+            "templateOptions": {
+              "options": [
+                {
+                  "value": null,
+                  "label": " -- "
+                },
+                {
+                  "value": 1,
+                  "label": "Italy"
+                },
+                {
+                  "value": 2,
+                  "label": "Germany"
+                },
+                {
+                  "value": 3,
+                  "label": "U.S."
+                },
+                {
+                  "value": 4,
+                  "label": "India"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "phoneNumber":{
+        "type":"phoneNumber",
+        "title":"Phone Number",
+        "widget":{
+          "formlyConfig":{
+            "className":"flex-3"
+          }
+        }
+      },
+      "credit_card": {
+        "type": "number",
+        "title": "Credit card",
+        "widget":{
+          "formlyConfig":{
+            "className":"flex-3"
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "credit_card": {
+        "properties": {
+          "billing_address": {
+            "type": "string",
+            "title": "Billing address"
+          }
+        },
+        "required": [
+          "billing_address"
+        ]
+      }
+    },
+    "required": ["firstname"]
+  }
