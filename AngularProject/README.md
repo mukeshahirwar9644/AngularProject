@@ -31,8 +31,8 @@ This project showcases a dynamic forms system where the UI is generated based on
 - **Prettier** and **pretty-quick** for formatting
 
 ---
-##Install Dependencies:
+## Install Dependencies:
 npm install
 
-##Run the Application:
+## Run the Application:
 npm start
